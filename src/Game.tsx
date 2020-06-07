@@ -11,8 +11,8 @@ interface State {
   xIsNext: boolean
 }
 
-export class Game extends React.Component<{}, State> {
-  constructor(props: any) {
+export class Game extends React.Component<unknown, State> {
+  constructor(props: unknown) {
     super(props);
     this.state = {
       history: [
@@ -25,7 +25,7 @@ export class Game extends React.Component<{}, State> {
     };
   }
 
-  handleClick(i: number) {
+  handleClick(i: number): void {
     const history = this.state.history.slice(0, this.state.stepNumber + 1);
     const current = history[history.length - 1];
     const squares = current.squares.slice();
@@ -44,14 +44,14 @@ export class Game extends React.Component<{}, State> {
     });
   }
 
-  jumpTo(step: number) {
+  jumpTo(step: number): void {
     this.setState({
       stepNumber: step,
       xIsNext: (step % 2) === 0
     });
   }
 
-  render() {
+  render(): JSX.Element {
     const history = this.state.history;
     const current = history[this.state.stepNumber];
     const winner = calculateWinner(current.squares);

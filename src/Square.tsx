@@ -5,7 +5,7 @@ interface Props {
   value: string|null
 }
 
-export function Square(props: Props) {
+export function Square(props: Props): JSX.Element {
   return (
     <button className="square" onClick={props.onClick}>
       {props.value}

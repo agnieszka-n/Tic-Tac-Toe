@@ -7,7 +7,7 @@ interface Props {
  }
 
 export class Board extends React.Component<Props> {
-  renderSquare(i: number) {
+  renderSquare(i: number): JSX.Element {
     return (
       <Square
         value={this.props.squares[i]}
@@ -16,7 +16,7 @@ export class Board extends React.Component<Props> {
     );
   }
 
-  render() {
+  render(): JSX.Element {
     return (
       <div>
         <div className="board-row">
