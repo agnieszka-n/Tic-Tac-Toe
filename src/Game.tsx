@@ -1,8 +1,18 @@
 import React from 'react';
 import { Board } from './Board';
 
-export class Game extends React.Component {
-  constructor(props) {
+interface HistoryStep {
+  squares: (string|null)[]
+}
+
+interface State {
+  history: HistoryStep[],
+  stepNumber: number,
+  xIsNext: boolean
+}
+
+export class Game extends React.Component<{}, State> {
+  constructor(props: any) {
     super(props);
     this.state = {
       history: [
@@ -15,7 +25,7 @@ export class Game extends React.Component {
     };
   }
 
-  handleClick(i) {
+  handleClick(i: number) {
     const history = this.state.history.slice(0, this.state.stepNumber + 1);
     const current = history[history.length - 1];
     const squares = current.squares.slice();
@@ -34,7 +44,7 @@ export class Game extends React.Component {
     });
   }
 
-  jumpTo(step) {
+  jumpTo(step: number) {
     this.setState({
       stepNumber: step,
       xIsNext: (step % 2) === 0
@@ -81,7 +91,7 @@ export class Game extends React.Component {
   }
 }
 
-function calculateWinner(squares) {
+function calculateWinner(squares: (string|null)[]) {
   const lines = [
     [0, 1, 2],
     [3, 4, 5],
