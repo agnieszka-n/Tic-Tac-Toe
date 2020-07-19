@@ -1,3 +1,9 @@
+A TypeScript version of the game presented in the official React tutorial (https://reactjs.org/tutorial/tutorial.html).
+
+Technologies used: React, TypeScript.
+
+---
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
